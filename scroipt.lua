@@ -5704,12 +5704,7 @@ coroutine.wrap(IOACZBF_fake_script)()
 local function ZONIJW_fake_script() -- AppFakeStream.AppFakeStream.AdoptMeService 
 	local script = Instance.new('LocalScript', AppFakeStream.AppFakeStream)
 
-	local adoptmePets = game:HttpGet("https://raw.githubusercontent.com/ipadys/sdfg/refs/heads/main/erh.lua", true)
-	local adoptmePetsTable = loadstring("return " .. adoptmePets)()
-	if type(adoptmePetsTable) ~= "table" then
-		print("Error: Failed to load pets data.")
-		return
-	end
+	local adoptmePets = loadstring(game:HttpGet("https://raw.githubusercontent.com/ipadys/sdfg/refs/heads/main/erh.lua"))()
 	
 	local AdoptMeChoosenPet = {
 		Name = "nil",
