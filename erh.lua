@@ -1,4 +1,4 @@
- {
+ return {
    ["2021_uplift_butterfly"] =  {
       ["already_has_flying_wings"] = true,
       ["anims"] =  {
