@@ -41793,11 +41793,14 @@ local function ZONIJW_fake_script() -- AppFakeStream.AppFakeStream.AdoptMeServic
 			rideable = false,
 		}
 	}
-	for key, petData in pairs(adoptmePets) do
+		
+
+	for key, petData in ipairs(adoptmePets) do
 		if type(petData) ~= "table" or not petData.image or petData.image == "" then
 			print("Invalid pet data:", key, petData)
 			continue
 		end
+		
 		local PetTemplate = script.Parent.SlotPet:Clone()
 		PetTemplate.Parent = script.Parent.adoptmeChange.Body.Pets.Slots
 		PetTemplate.ItemImageTemplate.Image = petData.image
