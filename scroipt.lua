@@ -5616,14 +5616,36 @@ Gui.Icon_4.Size = UDim2.new(0, 29, 0, 19)
 Gui.Icon_4.Image = "rbxassetid://14263447845"
 Gui.Icon_4.ImageColor3 = Color3.fromRGB(51, 51, 51)
 
+local truefalse = false
+
 -- Scripts:
+
 
 local function JBRI_fake_script() -- Gui.Accept.LocalScript 
 	local script = Instance.new('LocalScript', Gui.Accept)
+	
 
+
+	
 	script.Parent.Activated:Connect(function() 
+		local gui = script.Parent.Parent.Parent.Parent.Trade.ConfirmationFrame.TradeIcon
 		script.Parent.Parent.MyOffer.Accepted.Visible = true
-		wait(1)
+		
+		truefalse = true
+		
+		
+		task.spawn(function()
+
+			while truefalse do
+				task.wait(.005)
+				gui.Rotation += 3
+			end
+		end)
+		
+		wait(4)
+		truefalse = false
+		wait(0.5)
+		gui.Rotation = 0
 		script.Parent.Parent.Parent.Parent.Trade.ConfirmationFrame.Visible = false
 		script.Parent.Parent.Parent.Parent.Trade.NegotiationFrame.Visible = true
 		script.Parent.Parent.Parent.Parent.Trade.Visible = false
@@ -5649,6 +5671,8 @@ local function IOACZBF_fake_script() -- Gui.Accept_2.LocalScript
 	local script = Instance.new('LocalScript', Gui.Accept_2)
 
 	script.Parent.Activated:Connect(function()
+		
+		
 
 		for i,v in pairs(script.Parent.Parent.Parent.Body.MyOffer.Slots:GetDescendants()) do
 			if v:IsA("ImageButton") then
@@ -5701,8 +5725,6 @@ local function ZONIJW_fake_script() -- AppFakeStream.AppFakeStream.AdoptMeServic
 	local script = Instance.new('LocalScript', AppFakeStream.AppFakeStream)
 	
 	local adoptmePets = {
-
-		
    ["2021_uplift_butterfly"] =  {
       ["already_has_flying_wings"] = true,
       ["anims"] =  {
@@ -41774,9 +41796,7 @@ local function ZONIJW_fake_script() -- AppFakeStream.AppFakeStream.AdoptMeServic
          }
       }
    }
-
-
-	}
+}
 	
 
 	local AdoptMeChoosenPet = {
@@ -41922,7 +41942,9 @@ local function HPWF_fake_script() -- AppFakeStream.MakeTrade.LocalScript
 		local makeoffertext = script.Parent.Parent.Parent.MakeOffer
 		text = " sent you a trade request"
 		script.Parent.Parent.Parent.Dialog.Visible = true
-		script.Parent.Parent.Parent.Dialog.Frame.Info.Header.Text = makeoffertext.PartnerName.Text .. text
+		
+		
+
 		
 		for _, frame in pairs({"PartnerOffer", "MyOffer"}) do
 			for _, v in pairs(script.Parent.Parent.Parent.Trade.NegotiationFrame.Body[frame].Slots:GetChildren()) do
@@ -41938,9 +41960,10 @@ local function HPWF_fake_script() -- AppFakeStream.MakeTrade.LocalScript
 				end
 			end
 		end
+		
+		script.Parent.Parent.Parent.Dialog.Frame.Info.Header.Text = makeoffertext.PartnerName.Text .. text
 		script.Parent.Parent.Parent.Trade.ConfirmationFrame.PartnerOffer.Accepted.Visible = false
 		script.Parent.Parent.Parent.Trade.ConfirmationFrame.MyOffer.Accepted.Visible = false
-		
 		script.Parent.Parent.Parent.Trade.NegotiationFrame.Body.PartnerOffer.Accepted.Visible = false
 		script.Parent.Parent.Parent.Trade.NegotiationFrame.Body.MyOffer.Accepted.Visible = false
 		
