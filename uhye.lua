@@ -7421,7 +7421,7 @@ LoadPetsToFrame = function()
 	
 	-- for mobile/tablet
 	game:GetService("UserInputService").InputBegan:Connect(function(input)
-		if input.KeyCode == Enum.KeyCode.F then
+		if input.KeyCode == Enum.KeyCode.F1 then
 			ScreenGuiMain.Frame.Visible = not ScreenGuiMain.Frame.Visible
 		end
 	end)
